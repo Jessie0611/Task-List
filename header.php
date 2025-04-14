@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +13,16 @@
 </head>
 <body>
     <header>
-    <img src="img/logo.png" alt="Task List Logo" class="logo">
-    <nav>
-        <a href="index.php"><button>Home</button></a>
-        <a href="account.php"><button>Task</button></a>
-        <a href="weather.php"><button>Weather</button></a>
-        <a href="signuplogin.php"><button>Account</button></a>
-    </nav>
+    <a href="index.php"><img src="img/logo.png" alt="Task List Logo" class="logo"></a>
+        <nav>
+            <a href="index.php"><button>Home</button></a>
+            <a href="account.php"><button>Task</button></a>
+            <a href="weather.php"><button>Weather</button></a>
+
+            <?php if (isset($_SESSION['name'])): ?>
+                <a href="logout.php"><button>Logout</button></a>
+            <?php else: ?>
+                <a href="account.php"><button>Login</button></a>
+            <?php endif; ?>
+        </nav>
     </header>

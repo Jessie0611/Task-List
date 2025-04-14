@@ -74,5 +74,8 @@ button:hover {
 }
 h1{
     color: #1891c9;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
+}
+h2{
+    color: #648a91;
 }

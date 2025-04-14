@@ -1,4 +1,12 @@
-<?php include("database.php"); ?>
+<?php if (isset($_GET['error'])): ?>
+    <p style="color: red;">
+        <?php
+        if ($_GET['error'] == 'wrongpassword') echo "Incorrect password.";
+        if ($_GET['error'] == 'noaccount') echo "No account found with that email.";
+        ?>
+    </p>
+<?php endif; ?>
+
 <?php include("header.php"); ?>
 
         <div class="container">

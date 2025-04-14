@@ -8,7 +8,7 @@ define('DB_PASS', 'java123');
 define('DB_NAME', 'task');
 
 // Create a MySQLi connection
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME,);
 // Set the character set to UTF-8
 $conn->set_charset("utf8mb4");
 
