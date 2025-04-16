@@ -1,16 +1,13 @@
 <?php
 session_start();
 require 'database.php';
-
 // Check if user is logged in
 if (!isset($_SESSION['userID'])) {
     header("Location: login_signup.php");
     exit();
 }
-
 $userID = $_SESSION['userID'];
 $fName = $_SESSION['fName'];
-
 // Add new list
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_list'])) {
     $list_name = trim($_POST['list_name']);
@@ -23,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_list'])) {
     header("Location: task.php");
     exit();
 }
-
 // Add task to selected list
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_task'])) {
     $task = trim($_POST['task']);
@@ -40,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_task'])) {
     header("Location: task.php");
     exit();
 }
-
 // Delete task
 if (isset($_GET['delete_task'])) {
     $taskID = $_GET['delete_task'];
