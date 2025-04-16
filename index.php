@@ -1,4 +1,7 @@
-<?php include("database.php"); ?>
+<?php include("database.php"); 
+session_start();
+$_SESSION;
+?>
 <?php include("header.php"); ?>
 
 <h1>Welcome to Task-List</h1> 
@@ -12,6 +15,5 @@
 </h3>
 <br>
 <br>
-<a href="signuplogin.php">Create Account or Login to start!</a>
 </body>
 </html>
