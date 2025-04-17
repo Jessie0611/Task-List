@@ -75,15 +75,15 @@ $conn->close();
     <!-- Buttons -->
     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <form action="edit_profile.php" method="get">
-            <button type="submit">Edit Profile</button>
+            <button class="accBtn">Edit Profile</button>
         </form>
 
         <form action="change_password.php" method="get">
-            <button type="submit">Change Password</button>
+            <button class="accBtn">Change Password</button>
         </form>
 
         <form action="logout.php" method="post">
-            <button type="submit">Log Out</button>
+            <button class="accBtn">Log Out</button>
         </form>
     </div>
 </div>

@@ -9,17 +9,15 @@ if (!isset($_SESSION['userID'])) {
 $userID = $_SESSION['userID'];
 $fName = $_SESSION['fName'];
 // Add new list
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_list'])) {
-    $listName = trim($_POST['listName']);
-    if (!empty($listName)) {
-        $stmt = $conn->prepare("INSERT INTO task_lists (userID, listName) VALUES (?, ?)");
-        $stmt->bind_param("is", $userID, $listName);
-        $stmt->execute();
-        $stmt->close();
-    }
+if (!empty($task) && !empty($listID)) {
+    $stmt = $conn->prepare("INSERT INTO tasks (userID, listID, task) VALUES (?, ?, ?)");
+    $stmt->bind_param("iis", $userID, $listID, $task);
+    $stmt->execute();
+    $stmt->close();
+}
+
     header("Location: task.php");
     exit();
-}
 // Add task to selected list
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_task'])) {
     $task = trim($_POST['task']);
@@ -27,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_task'])) {
 
 
     if (!empty($task) && !empty($listID)) {
-        $stmt = $conn->prepare("INSERT INTO tasks (userID, listID, task) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO tasks (userID, listID, task) VALUES (?, ?, ?)");
         $stmt->bind_param("iisss", $userID, $listID, $task);
         $stmt->execute();
         $stmt->close();
@@ -67,7 +65,7 @@ $lists_result = $list_query->get_result();
 $selected_listID = isset($_POST['listID']) ? $_POST['listID'] : null;
 
 // Fetch tasks from selected list
-$task_query = $conn->prepare("SELECT * FROM tasks WHERE userID = ? AND listID = ? ORDER BY due_date ASC, priority DESC");
+$task_query = $conn->prepare("SELECT * FROM tasks WHERE userID = ? AND listID = ?");
 $task_query->bind_param("ii", $userID, $selected_listID);
 $task_query->execute();
 $tasks_result = $task_query->get_result();

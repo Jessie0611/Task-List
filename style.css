@@ -139,3 +139,20 @@ li.task-item {
     font-weight: bold;
     margin-left: 10px;
 }
+.accBtn{
+    width: 80%;
+    font-size: small;
+}
+.accBtn{
+    background: #1891c9;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 80%;
+    font-size: small;
+}
+.accBtn:hover{
+    background: #648a91;
+    color: yellow;
+    font-size: small;
+}
