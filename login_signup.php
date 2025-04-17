@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  //SIGNUP
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $stmt = $conn->prepare("SELECT userID, fName, password FROM tasks WHERE eMail = ?");
+        $stmt = $conn->prepare("SELECT userID, fName, password FROM users WHERE eMail = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();
