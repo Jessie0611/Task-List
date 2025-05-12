@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color:rgb(244, 237, 225);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,10 +19,12 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+
 }
 nav {
     display: flex;
     gap: 5px;
+    box-shadow:0 0 0 0 7 black;
 }
 nav a {
     text-decoration: none;
@@ -49,15 +51,14 @@ nav button {
     margin-top: 90px;
 }
 input {
-    width: 80%;
+    width: 15%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #a5a5a5;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 button {
-    width: 80%;
+    width: 10%;
     padding: 10px;
     background: #1891c9;
     color: white;
@@ -71,6 +72,13 @@ button:hover {
     color: yellow;
     font-size: medium;
 
+}
+#checkBx{
+    border: 1 px solid blue;
+    border-radius: 30px;
+}
+#checkBx:hover{
+    background-color: aqua;
 }
 h1{
     color: #1891c9;
