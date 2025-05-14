@@ -1,33 +1,32 @@
-function getWeather() {
-    const location = document.getElementById('locationInput').value.trim();
-    const apiKey = 'a1fc34767b612ebf210ee36d5cd32242';
-  
-    if (!location) {
-      alert('Please enter a city or ZIP code.');
-      return;
-    }
-  
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`;
-  
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-        }
-        return response.json();
-      })
-      .then(data => {
-        const temp = data.main.temp;
-        const description = data.weather[0].description;
-        const city = data.name;
-  
-        document.getElementById('weatherResult').innerHTML =
-          `<p><strong>${city}</strong></p>
-           <p>${description}</p>
-           <p>🌡️ ${temp}°F</p>`;
-      })
-      .catch(error => {
-        document.getElementById('weatherResult').innerHTML = `<p style="color:red;">${error.message}</p>`;
-        throw new Error('Weather not found');
-      });
+async function getWeather() {
+  const apiKey = "adb919fc7b60dae9d85ecf13bd9aeb21";
+  const location = document.getElementById("locationInput").value;
+  const resultDiv = document.getElementById("weatherResult");
+
+  if (!location.trim()) {
+    resultDiv.innerHTML = "<p>Please enter a city or ZIP code.</p>";
+    return;
   }
-  
+
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&appid=${apiKey}&units=metric`
+    );
+    
+    if (!response.ok) {
+      throw new Error("City not found.");
+    }
+
+    const data = await response.json();
+    const weather = `
+      <h3>${data.name}, ${data.sys.country}</h3>
+      <p>🌡️ Temperature: ${data.main.temp}°C</p>
+      <p>🌥️ Condition: ${data.weather[0].description}</p>
+      <p>💨 Wind: ${data.wind.speed} m/s</p>
+    `;
+
+    resultDiv.innerHTML = weather;
+  } catch (error) {
+    resultDiv.innerHTML = `<p style="color: red;">${error.message}</p>`;
+  }
+}

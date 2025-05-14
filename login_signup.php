@@ -67,13 +67,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  //SIGNUP
 ?>
 <?php include("header.php"); ?>
 <div class="container">
-    <h2>Welcome to Task-List</h2>
+<header class="page-header">
+    <h1>Welcome to <span class="highlight">Task-List</span></h1>
+    <p class="subtitle">Get things done like a pro with the #1 task management platform!</p>
+  </header>
 
     <?php if (!empty($message)): ?>
         <p style="color: darkred;"><strong><?= $message ?></strong></p>
     <?php endif; ?>
 
-    <h2>Sign Up</h2>
+    <h2>Sign <span class="highlight">Up</span></h2>
     <form action="login_signup.php" method="POST">
         <input type="text" name="name" placeholder="Preferred Name" required>
         <input type="email" name="email" placeholder="Email" required>
@@ -81,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  //SIGNUP
         <button type="submit" name="signup">Sign Up</button>
     </form>
 
-    <h2>Login</h2>
+    <h2>Log<span class="highlight">in</span></h2>
     <form action="login_signup.php" method="POST">
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
