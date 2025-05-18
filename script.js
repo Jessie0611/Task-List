@@ -32,7 +32,6 @@ async function getWeather() {
 }
 
 /* - - - - - - - - - - Practice Questions - - - - - - - - - - */
-
 /*🧠 Basic Logic & Variables
 Swap Two Variables: Write a program that swaps the values of two variables.
 JavaScript*/
@@ -55,8 +54,6 @@ public class swapExample {
   }      
  }*/
 
-
-
 /*Even or Odd: Ask the user for a number and print whether it’s even or odd.*/
 let num = prompt("Enter a number: ");
 num = Number(number);
@@ -78,8 +75,6 @@ public class EvenOdd {
     }
 }
  */
-
-
 
 /*Maximum of Two Numbers: Input two numbers and print the bigger one.*/
 let number1 = prompt("Enter a number: ");

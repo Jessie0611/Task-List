@@ -53,15 +53,15 @@ $conn->close();
     <h1>Hello,<span class="highlight"> <?php echo htmlspecialchars($fName); ?>!</span></h1>
 
     <!-- Profile Image -->
-    <div style="margin: 20px 0;">
+    <div style="margin: 10px 0;">
         <img src="<?php echo $profilePic ? htmlspecialchars($profilePic) : 'default-profile.png'; ?>" 
              alt="Profile Picture" 
-             style="width: 280px; height: 280px; border-radius: 10%; object-fit: cover;">
+             style="width: 300px; height: 310px; border-radius: 10%; object-fit: cover;">
     </div>
-
+    
     <!-- Upload Form -->
     <form method="post" enctype="multipart/form-data" style="margin-bottom: 20px;">
-        <label for="profilePic">Upload new profile photo:</label><br>
+        <label for="profilePic">Upload new profile photo:</label>
         <input type="file" name="profilePic" id="profilePic" required>
         <button type="upload">Upload</button>
     </form>
@@ -72,8 +72,8 @@ $conn->close();
 
  <div class="userInfo">
     <strong>E-Mail:&nbsp;</strong> <?php echo htmlspecialchars($eMail); ?> <br>
-    <strong>Phone:&nbsp;</strong> <?php echo htmlspecialchars($phoneNum); ?></p>
- </div>
+    <strong>Phone:&nbsp;</strong> <?php echo htmlspecialchars($phoneNum); ?><br>
+ </div> <br>
 
     <!-- Buttons -->
     <div class="accBtns">

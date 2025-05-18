@@ -52,7 +52,7 @@ h1 {
 /* Container */
 .container {
     background-color: white;
-    padding: 30px;
+    padding: 10px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 90%;
@@ -228,10 +228,6 @@ input {
     border: 1px solid #a5a5a5;
     border-radius: 5px;
 }
-
-h2{
-    color: #1891c9;
-}
 /* Task Form Styling */
 .task-form {
     display: flex;
@@ -260,7 +256,7 @@ h2{
 }
 
 .task-form button:hover {
-    background-color: #63c0a1;
+    background-color: #4CAF50;
 }
 
 /* Task List Styling */
