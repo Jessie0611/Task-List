@@ -6,9 +6,7 @@ if (!isset($_SESSION['userID'])) {
     header("Location: login_signup.php");
     exit();
 }
-
 require 'database.php';
-
 $userID = $_SESSION['userID'];
 $uploadMessage = "";
 
@@ -47,43 +45,44 @@ $conn->close();
 ?>
 
 <?php include("header.php"); ?>
-
-<div class="container" style="max-width: 600px; margin: 40px auto;">
-
-    <h2>Hello, <?php echo htmlspecialchars($fName); ?>!</h2>
-    <p><strong>Email:</strong> <?php echo htmlspecialchars($eMail); ?></p>
-    <p><strong>Phone:</strong> <?php echo htmlspecialchars($phoneNum); ?></p>
+  <header class="page-header">
+    <h1>Task-<span class="highlight">List</span></h1>
+    <p class="subtitle">Getting things done like a pro!</p>
+  </header>
+<div class="container" style="max-width: 600px; margin: 40px auto; font-size: 1.1em; ">
+    <h1>Hello,<span class="highlight"> <?php echo htmlspecialchars($fName); ?>!</span></h1>
 
     <!-- Profile Image -->
     <div style="margin: 20px 0;">
         <img src="<?php echo $profilePic ? htmlspecialchars($profilePic) : 'default-profile.png'; ?>" 
              alt="Profile Picture" 
-             style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;">
+             style="width: 280px; height: 280px; border-radius: 10%; object-fit: cover;">
     </div>
 
     <!-- Upload Form -->
     <form method="post" enctype="multipart/form-data" style="margin-bottom: 20px;">
         <label for="profilePic">Upload new profile photo:</label><br>
         <input type="file" name="profilePic" id="profilePic" required>
-        <button type="submit">Upload</button>
+        <button type="upload">Upload</button>
     </form>
 
     <?php if ($uploadMessage): ?>
         <p style="color: green;"><?php echo $uploadMessage; ?></p>
     <?php endif; ?>
 
+ <div class="userInfo">
+    <strong>E-Mail:&nbsp;</strong> <?php echo htmlspecialchars($eMail); ?> <br>
+    <strong>Phone:&nbsp;</strong> <?php echo htmlspecialchars($phoneNum); ?></p>
+ </div>
+
     <!-- Buttons -->
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <div class="accBtns">
         <form action="edit_profile.php" method="get">
-            <button class="accBtn">Edit Profile</button>
+            <button class="accBtn">Edit Info</button>
         </form>
 
         <form action="change_password.php" method="get">
             <button class="accBtn">Change Password</button>
-        </form>
-
-        <form action="logout.php" method="post">
-            <button class="accBtn">Log Out</button>
         </form>
     </div>
 </div>

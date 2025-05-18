@@ -10,7 +10,6 @@ body {
     min-height: 100vh;
     padding-top: 100px;
 }
-
 /* Header / Navigation */
 header.page-header {
     margin-top: 80px;
@@ -26,9 +25,29 @@ h1 {
     color: #005580;
 }
 .subtitle {
-    font-size: 1.3em;
+    font-size: 1.4em;
     color: #555;
     margin-top: 10px;
+}
+.sign a{
+    font-weight: bold;
+    color: #1891c9;
+    font-size: 1.3em;
+    text-decoration: none;
+    cursor: pointer;
+}
+.sign .lowlight{
+    color:#005580;
+}
+.sign a:hover{
+    font-weight: bold;
+    color: #005580;
+    font-size: 1.3em;
+    text-decoration: none;
+    cursor: pointer;
+}
+.sign a:hover .lowlight {
+    color: #1891c9;
 }
 /* Container */
 .container {
@@ -55,17 +74,22 @@ h1 {
 }
 .feature-list input[type="checkbox"] {
     margin-right: 12px;
+    border: 1px solid black;
     accent-color: #1891c9;
     transform: scale(1.2);
 }
 .feature-list label {
-    font-size: 1.1em;
+    color: #005580;
+    font-size: 1.3em;
     cursor: pointer;
+}
+.feature-list label:hover {
+    color: #1891c9;
 }
 /* Description Text */
 .description {
     margin-top: 20px;
-    font-size: 1em;
+    font-size: 1.2em;
     color: #555;
 }
 /* Buttons (optional reuse) */
@@ -80,33 +104,30 @@ button {
     transition: background-color 0.3s ease;
 }
 button:hover {
-    background-color: #145d7e;
+    background-color: #005580;
 }
 .weather-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .weather-card {
-    background-color: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .weather-title {
-    font-size: 2.2rem;
-    color: #1891c9;
-    margin-bottom: 20px;
-  }
-  
-  /* Input and Button */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   padding: 20px;
+}
+.weather-card {
+   background-color: white;
+   padding: 40px;
+   border-radius: 16px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   max-width: 500px;
+   width: 100%;
+}
+.weather-title {
+   font-size: 2.2rem;
+   color: #1891c9;
+   margin-bottom: 20px;
+}
+/* Input and Button */
   .weather-form {
     display: flex;
     flex-direction: row;
@@ -115,16 +136,16 @@ button:hover {
     margin-bottom: 20px;
   }
   
-  .weather-form input[type="text"] {
+.weather-form input[type="text"] {
     padding: 12px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     flex: 1;
     min-width: 0;
-  }
+}
   
-  .weather-form button {
+.weather-form button {
     background-color: #1891c9;
     color: white;
     border: none;
@@ -133,18 +154,18 @@ button:hover {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
-  }
+}
+.weather-form button:hover {
+    background-color: #005580;
+}
   
-  .weather-form button:hover {
-    background-color: #145d7e;
-  }
-  
-  /* Weather Result */
-  .weather-result {
+/* Weather Result */
+.weather-result {
     font-size: 1.1rem;
     color: #333;
     margin-top: 20px;
-  }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     h1 {
@@ -175,7 +196,6 @@ header {
 nav {
     display: flex;
     gap: 5px;
-    box-shadow:0 0 0 0 7 black;
 }
 nav a {
     text-decoration: none;
@@ -202,24 +222,13 @@ nav button {
     margin-top: 90px;
 }
 input {
-    width: 15%;
+    width: 10%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #a5a5a5;
     border-radius: 5px;
 }
 
-#checkBx{
-    border: 1 px solid blue;
-    border-radius: 30px;
-}
-#checkBx:hover{
-    background-color: aqua;
-}
-h1{
-    color: #1891c9;
-    padding-bottom: 40px;
-}
 h2{
     color: #1891c9;
 }
@@ -259,8 +268,8 @@ h2{
 form input, form select {
     margin: 5px 0;
     padding: 8px;
-    width: 100%;
-    border: 1px solid #ccc;
+    width: 70%;
+    border: 1px solid #909090;
     border-radius: 5px;
 }
 ul {
@@ -283,20 +292,24 @@ li.task-item {
     font-weight: bold;
     margin-left: 10px;
 }
-.accBtn{
-    width: 80%;
-    font-size: small;
+.userInfo{
+    margin-left: 50px;
+    text-align: left;
+    font-size: 1.1em;
+}
+.accBtns{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    gap: 120px;
 }
 .accBtn{
+    width: 100%;
+    font-size: 1em;
     background: #1891c9;
-    color: white;
     border-radius: 8px;
     cursor: pointer;
-    width: 80%;
-    font-size: small;
 }
 .accBtn:hover{
-    background: #648a91;
-    color: yellow;
-    font-size: small;
+    background: #005580;
 }

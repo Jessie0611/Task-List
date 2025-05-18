@@ -8,16 +8,6 @@ if (!isset($_SESSION['userID'])) {
 }
 $userID = $_SESSION['userID'];
 $fName = $_SESSION['fName'];
-// Add new list
-if (!empty($task) && !empty($listID)) {
-    $stmt = $conn->prepare("INSERT INTO tasks (userID, listID, task) VALUES (?, ?, ?)");
-    $stmt->bind_param("iis", $userID, $listID, $task);
-    $stmt->execute();
-    $stmt->close();
-}
-
-    header("Location: task.php");
-    exit();
 // Add task to selected list
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_task'])) {
     $task = trim($_POST['task']);
@@ -74,16 +64,15 @@ $list_query->close();
 $task_query->close();
 $conn->close();
 ?>
+
+
 <?php include("header.php"); ?>
-<style>
-    .container { max-width: 700px; margin: auto; padding: 20px; }
-    .task-form, .list-form { margin-bottom: 20px; }
-    .task-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; background: #f9f9f9; border-radius: 5px; }
-    .delete-btn, .delete-list-btn { color: red; text-decoration: none; margin-left: 10px; }
-    .list-select { margin-bottom: 15px; }
-</style>
+  <header class="page-header">
+    <h1>Task-<span class="highlight">List</span></h1>
+    <p class="subtitle">Getting things done like a pro!</p>
+  </header>
 <div class="container">
-    <h2><?= htmlspecialchars($fName) ?>'s Task Lists</h2>
+    <h1><?= htmlspecialchars($fName) ?>'s <span class="highlight">List</span></h1>
 
     <!-- Add New List -->
     <form method="POST" class="list-form">

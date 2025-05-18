@@ -8,7 +8,7 @@ session_start();
     <h1>Welcome to <span class="highlight">Task-List</span></h1>
     <p class="subtitle">Get things done like a pro with the #1 task management platform!</p>
   </header>
-
+<br><br>
   <section class="features">
     <ul class="feature-list">
       <li>
@@ -32,6 +32,10 @@ session_start();
         <label for="goal">Goals</label>
       </li>
     </ul>
+    
     <p class="description">
       Your tasks, goals, and lists—effortlessly organized in one super-flexible platform.
-      <br><br>☑️ Check
+      <br>
+    <div class="sign"><a href="login_signup.php">☑️Check <br>
+       Sign up <span class="lowlight">for free!</span></a></div>
+    </p>
